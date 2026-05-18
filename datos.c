@@ -1,19 +1,5 @@
 #include <stdio.h>
 
-    int pedirRecursosTotales() {
-        int recursos;
-        printf("Ingrese la cantidad de recursos totales disponibles: ");
-        scanf("%d", &recursos);
-        return recursos;
-    }
-
-    int pedirTiempoTotal() {
-        int tiempo;
-        printf("Ingrese el tiempo total disponible: ");
-        scanf("%d", &tiempo);
-        return tiempo;
-    }
-
 void ingresarProducto(char nombres[][50], int tiempos[], int recursos[], int cantidades[], int indiceActual) {
     
     printf("Datos del producto%d\n", indiceActual + 1);

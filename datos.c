@@ -51,3 +51,36 @@ void ingresarProducto(char nombres[][30], int tiempos[], int recursos[], int can
     printf("Ingrese la cantidad demandada: \n");
     cantidades[indiceActual] = pedirEnteroValido();
 }
+
+void editarProducto(int tiempos[], int recursos[], int cantidades[], int indiceEncontrado, int tiempoLimite, int recursosLimite) {
+    do {
+        printf("Ingrese el nuevo tiempo unitario de fabricacion: \n");
+        tiempos[indiceEncontrado] = pedirEnteroValido();
+        if (tiempos[indiceEncontrado] > tiempoLimite) {
+            printf("El tiempo unitario excede el limite de la fabrica\n");
+        }
+    } while (tiempos[indiceEncontrado] > tiempoLimite);
+    
+    do {
+        printf("Ingrese los nuevos recursos unitarios necesarios: \n");
+        recursos[indiceEncontrado] = pedirEnteroValido();
+        if (recursos[indiceEncontrado] > recursosLimite) {
+            printf("Los recursos unitarios exceden el limite de la fabrica\n");
+        }
+    } while (recursos[indiceEncontrado] > recursosLimite);
+    
+    printf("Ingrese la nueva cantidad demandada: \n");
+    cantidades[indiceEncontrado] = pedirEnteroValido();
+}
+
+void calcularEstado(int cantidades[], int tiempos[], int recursos[], int *totalTiempo, int *totalRecursos) {
+    *totalTiempo = 0;
+    *totalRecursos = 0;
+    
+    for(int i = 0; i < 5; i++) {
+        if(cantidades[i] > 0) {
+            *totalTiempo = *totalTiempo + (tiempos[i] * cantidades[i]);
+            *totalRecursos = *totalRecursos + (recursos[i] * cantidades[i]);
+        }
+    }
+}

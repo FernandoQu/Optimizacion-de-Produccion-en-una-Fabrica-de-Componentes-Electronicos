@@ -4,11 +4,11 @@
 
 int main() {
     
-    char nombreDelProducto[5][15];
+    char nombreDelProducto[5][30];
     int tiempoUnitario[5] = {0};
     int recursosUnitarios[5] = {0};
     int cantidadDemandada[5] = {0};
-    char nombreAEliminar[50];
+    char nombreAEliminar[30];
     int indiceEncontrado;
     int opcion;
     int tiempoLimite, recursosLimite;
@@ -45,9 +45,6 @@ int main() {
                 
                 break;
             case 3:
-
-                char nombreAEliminar[15];
-                int indiceEncontrado;
 
                 printf("\nEliminar Producto\n");
                 printf("Ingrese el nombre del producto para eliminar: \n");

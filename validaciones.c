@@ -41,7 +41,7 @@ int esSoloLetras(char cadena[]) {
     return 1;
 }
 
-int existeProducto(char nombreBuscado[], char matrizNombres[][15]) {
+int existeProducto(char nombreBuscado[], char matrizNombres[][30]) {
     for (int i = 0; i < 5; i++) {
         int sonIguales = 1;
         int j = 0;
@@ -66,13 +66,13 @@ int validarLongitud(char cadena[]) {
         contador++;
     }
 
-    if (contador < 2 || contador >= 15) {
+    if (contador < 2 || contador >= 30) {
         return 0;
     }
     return 1;
 }
 
-int buscarIndiceProducto(char nombreBuscado[], char matrizNombres[][50], int cantidades[]) {
+int buscarIndiceProducto(char nombreBuscado[], char matrizNombres[][30], int cantidades[]) {
     for (int i = 0; i < 5; i++) {
         if (cantidades[i] > 0) {
             int sonIguales = 1;

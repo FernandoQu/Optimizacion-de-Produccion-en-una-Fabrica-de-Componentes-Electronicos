@@ -2,8 +2,8 @@
 #include "datos.h"
 #include "validaciones.h"
 
-void ingresarProducto(char nombres[][15], int tiempos[], int recursos[], int cantidades[], int indiceActual) {
-    char nombreTemporal[15];
+void ingresarProducto(char nombres[][30], int tiempos[], int recursos[], int cantidades[], int indiceActual) {
+    char nombreTemporal[30];
     int nombreValido = 0;
 
     printf("Datos del producto %d\n", indiceActual + 1);
@@ -14,7 +14,7 @@ void ingresarProducto(char nombres[][15], int tiempos[], int recursos[], int can
         while (getchar() != '\n');
 
         if (validarLongitud(nombreTemporal) == 0) {
-            printf("El nombre debe tener entre 2 y 15 letras\n");
+            printf("El nombre debe tener entre 2 y 30 letras\n");
         } else if (esSoloLetras(nombreTemporal) == 0) {
             printf("El nombre solo debe contener letras\n");
         } else if (existeProducto(nombreTemporal, nombres) == 1) {

@@ -8,7 +8,8 @@ int main() {
     int tiempoUnitario[5] = {0};
     int recursosUnitarios[5] = {0};
     int cantidadDemandada[5] = {0};
-
+    char nombreAEliminar[50];
+    int indiceEncontrado;
     int opcion;
     int tiempoLimite, recursosLimite;
 
@@ -29,7 +30,7 @@ int main() {
         opcion = pedirEnteroValido();
 
         switch(opcion) {
-            case 1: {
+            case 1: 
 
                 int indiceActual = buscarEspacioLibre(cantidadDemandada);
                 if(indiceActual == -1) {
@@ -39,21 +40,41 @@ int main() {
                 }
                 break;
 
-            }
+            
             case 2:
                 
                 break;
             case 3:
-                
+
+                char nombreAEliminar[15];
+                int indiceEncontrado;
+
+                printf("\nEliminar Producto\n");
+                printf("Ingrese el nombre del producto para eliminar: \n");
+                scanf("%s", nombreAEliminar);
+                while (getchar() != '\n');
+
+                indiceEncontrado = buscarIndiceProducto(nombreAEliminar, nombreDelProducto, cantidadDemandada);
+
+                if (indiceEncontrado == -1) {
+                    printf("No se encontro ningun producto con el nombre %s\n", nombreAEliminar);
+                } else {
+
+                    cantidadDemandada[indiceEncontrado] = 0;
+                    nombreDelProducto[indiceEncontrado][0] = '\0'; 
+                    printf("\nEl producto %s ha sido eliminado\n", nombreAEliminar);
+
+                }
                 break;
+
             case 4:
                 
                 break;
             case 5:
-                printf("Saliendo del sistema...\n");
+                printf("Saliendo\n");
                 break;
             default:
-                printf("Opcion no valida.\n");
+                printf("Opcion no valida\n");
         }
     } while(opcion != 5);
 

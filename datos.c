@@ -11,7 +11,6 @@ void ingresarProducto(char nombres[][15], int tiempos[], int recursos[], int can
     do {
         printf("Ingrese el nombre del producto: \n");
         scanf("%s", nombreTemporal); 
-        
         while (getchar() != '\n');
 
         if (validarLongitud(nombreTemporal) == 0) {

@@ -1,9 +1,10 @@
 #include <stdio.h>
 #include "datos.h"
+#include "validaciones.h"
 
 int main() {
     
-    char nombreDelProducto[5][50];
+    char nombreDelProducto[5][15];
     int tiempoUnitario[5] = {0};
     int recursosUnitarios[5] = {0};
     int cantidadDemandada[5] = {0};
@@ -11,10 +12,10 @@ int main() {
     int opcion;
     int tiempoLimite, recursosLimite;
 
-    printf("Ingrese el tiempo de fabricacion: ");
+    printf("Ingrese el disponible tiempo de fabricacion: \n");
     tiempoLimite = pedirEnteroValido();
 
-    printf("Ingrese los recursos necesarios: ");
+    printf("Ingrese los recursos disponibles necesarios: \n");
     recursosLimite = pedirEnteroValido();
 
     do {
@@ -25,24 +26,19 @@ int main() {
         printf("4. Ver Estado de Producción\n");
         printf("5. Salir\n");
         printf("Seleccione una opcion: ");
-        scanf("%d", &opcion);
+        opcion = pedirEnteroValido();
 
         switch(opcion) {
             case 1: {
-                int indiceActual = -1;
-                for(int i = 0; i < 5; i++) {
-                    if(cantidadDemandada[i] == 0) { 
-                        indiceActual = i;
-                        break; 
-                    }
-                }
+
+                int indiceActual = buscarEspacioLibre(cantidadDemandada);
                 if(indiceActual == -1) {
-                    printf("\n¡Alerta: Inventario lleno! Debe eliminar un producto primero.\n");
+                    printf("\nInventario esta lleno\n");
                 } else {
-                    
                     ingresarProducto(nombreDelProducto, tiempoUnitario, recursosUnitarios, cantidadDemandada, indiceActual);
                 }
                 break;
+
             }
             case 2:
                 

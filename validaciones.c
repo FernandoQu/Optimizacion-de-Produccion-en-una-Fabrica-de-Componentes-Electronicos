@@ -19,6 +19,15 @@ int pedirEnteroValido() {
     return numero;
 }
 
+int buscarEspacioLibre(int cantidades[]) {
+    for(int i = 0; i < 5; i++) {
+        if(cantidades[i] == 0) { 
+            return i;
+        }
+    }
+    return -1;
+}
+
 int esSoloLetras(char cadena[]) {
     int i = 0;
     while (cadena[i] != '\0') {
@@ -48,4 +57,17 @@ int existeProducto(char nombreBuscado[], char matrizNombres[][50]) {
         }
     }
     return 0;
+}
+
+int validarLongitud(char cadena[]) {
+    int contador = 0;
+
+    while (cadena[contador] != '\0') {
+        contador++;
+    }
+
+    if (contador < 2 || contador >= 15) {
+        return 0;
+    }
+    return 1;
 }

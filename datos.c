@@ -2,7 +2,7 @@
 #include "datos.h"
 #include "validaciones.h"
 
-void ingresarProducto(char nombres[][30], int tiempos[], int recursos[], int cantidades[], int indiceActual) {
+void ingresarProducto(char nombres[][30], int tiempos[], int recursos[], int cantidades[], int indiceActual, int tiempoLimite, int recursosLimite) {
     char nombreTemporal[30];
     int nombreValido = 0;
 
@@ -32,11 +32,21 @@ void ingresarProducto(char nombres[][30], int tiempos[], int recursos[], int can
     }
     nombres[indiceActual][j] = '\0';
     
-    printf("Ingrese el tiempo unitario de fabricacion: \n");
-    tiempos[indiceActual] = pedirEnteroValido();
+    do {
+        printf("Ingrese el tiempo unitario de fabricacion: \n");
+        tiempos[indiceActual] = pedirEnteroValido();
+        if (tiempos[indiceActual] > tiempoLimite) {
+            printf("El tiempo unitario excede el limite de la fabrica\n");
+        }
+    } while (tiempos[indiceActual] > tiempoLimite);
     
-    printf("Ingrese los recursos unitarios necesarios: \n");
-    recursos[indiceActual] = pedirEnteroValido();
+    do {
+        printf("Ingrese los recursos unitarios necesarios: \n");
+        recursos[indiceActual] = pedirEnteroValido();
+        if (recursos[indiceActual] > recursosLimite) {
+            printf("Los recursos unitarios exceden el limite de la fabrica\n");
+        }
+    } while (recursos[indiceActual] > recursosLimite);
     
     printf("Ingrese la cantidad demandada: \n");
     cantidades[indiceActual] = pedirEnteroValido();

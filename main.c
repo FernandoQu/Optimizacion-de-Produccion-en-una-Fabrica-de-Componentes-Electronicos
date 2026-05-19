@@ -24,9 +24,9 @@ int main() {
         printf("1. Ingresar Producto\n");
         printf("2. Editar Producto\n");
         printf("3. Eliminar Producto\n");
-        printf("4. Ver Estado de Producción\n");
+        printf("4. Ver Estado de Produccion\n");
         printf("5. Salir\n");
-        printf("Seleccione una opcion: ");
+        printf("Seleccione una opcion: \n");
         opcion = pedirEnteroValido();
 
         switch(opcion) {
@@ -36,7 +36,7 @@ int main() {
                 if(indiceActual == -1) {
                     printf("\nInventario esta lleno\n");
                 } else {
-                    ingresarProducto(nombreDelProducto, tiempoUnitario, recursosUnitarios, cantidadDemandada, indiceActual);
+                    ingresarProducto(nombreDelProducto, tiempoUnitario, recursosUnitarios, cantidadDemandada, indiceActual, tiempoLimite, recursosLimite);
                 }
                 break;
 

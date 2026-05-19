@@ -41,7 +41,7 @@ int esSoloLetras(char cadena[]) {
     return 1;
 }
 
-int existeProducto(char nombreBuscado[], char matrizNombres[][50]) {
+int existeProducto(char nombreBuscado[], char matrizNombres[][15]) {
     for (int i = 0; i < 5; i++) {
         int sonIguales = 1;
         int j = 0;
@@ -70,4 +70,25 @@ int validarLongitud(char cadena[]) {
         return 0;
     }
     return 1;
+}
+
+int buscarIndiceProducto(char nombreBuscado[], char matrizNombres[][50], int cantidades[]) {
+    for (int i = 0; i < 5; i++) {
+        // Solo buscamos en los espacios que sí tienen un producto (cantidad > 0)
+        if (cantidades[i] > 0) {
+            int sonIguales = 1;
+            int j = 0;
+            while (nombreBuscado[j] != '\0' || matrizNombres[i][j] != '\0') {
+                if (nombreBuscado[j] != matrizNombres[i][j]) {
+                    sonIguales = 0;
+                    break;
+                }
+                j++;
+            }
+            if (sonIguales == 1) {
+                return i; // ¡Lo encontramos! Devolvemos la posición
+            }
+        }
+    }
+    return -1; // No se encontró en ningún lado
 }

@@ -10,32 +10,25 @@ int main() {
     int cantidadDemandada[5] = {0};
     char nombreAEliminar[30];
     char nombreAEditar[30];
+    int indiceActual;
     int indiceEncontrado;
     int opcion;
     int tiempoLimite, recursosLimite;
     int sumaTiempo = 0;
     int sumaRecursos = 0;
 
-    printf("Ingrese el disponible tiempo (Dias) de fabricacion: \n");
-    tiempoLimite = pedirEnteroValido();
 
-    printf("Ingrese los recursos disponibles necesarios: \n");
-    recursosLimite = pedirEnteroValido();
+    tiempoLimite = limiteDeTiempo();
+    recursosLimite = limiteDeRecursos();
 
     do {
-        printf("Menu\n");
-        printf("1. Ingresar Producto\n");
-        printf("2. Editar Producto\n");
-        printf("3. Eliminar Producto\n");
-        printf("4. Ver Estado de Produccion\n");
-        printf("5. Salir\n");
-        printf("Seleccione una opcion: \n");
-        opcion = pedirEnteroValido();
+        
+        opcion = desplegarMenu();
 
         switch(opcion) {
             case 1: 
 
-                int indiceActual = buscarEspacioLibre(cantidadDemandada);
+                indiceActual = buscarEspacioLibre(cantidadDemandada);
                 if(indiceActual == -1) {
                     printf("\nInventario esta lleno\n");
                 } else {

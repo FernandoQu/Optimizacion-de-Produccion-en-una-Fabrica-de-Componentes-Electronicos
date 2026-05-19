@@ -2,6 +2,31 @@
 #include "datos.h"
 #include "validaciones.h"
 
+int desplegarMenu(){
+    int opcion;
+    printf("Menu\n");
+    printf("1. Ingresar Producto\n");
+    printf("2. Editar Producto\n");
+    printf("3. Eliminar Producto\n");
+    printf("4. Ver Estado de Produccion\n");
+    printf("5. Salir\n");
+    printf("Seleccione una opcion: \n");
+    opcion = pedirEnteroValido();
+    return opcion;
+}
+int limiteDeTiempo(){
+    int tiempo;
+    printf("Ingrese el disponible tiempo (Dias) de fabricacion: \n");
+    tiempo = pedirEnteroValido();
+    return tiempo;
+}
+
+int limiteDeRecursos(){
+    int recursos;
+    printf("Ingrese los recursos disponibles necesarios: \n");
+    recursos = pedirEnteroValido();
+    return recursos;
+}
 void ingresarProducto(char nombres[][30], int tiempos[], int recursos[], int cantidades[], int indiceActual, int tiempoLimite, int recursosLimite) {
     char nombreTemporal[30];
     int nombreValido = 0;
